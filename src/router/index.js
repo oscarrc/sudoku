@@ -13,7 +13,12 @@ const routes = [
   {
     path: '/game',
     name: 'Game',    
-    component: () => import(/* webpackChunkName: "about" */ '../views/Game.vue')
+    component: () => import(/* webpackChunkName: "game" */ '../views/Game.vue')
+  },
+  {
+    path: '/leaderboard',
+    name: 'Leaderboard',    
+    component: () => import(/* webpackChunkName: "leaderboard" */ '../views/Leaderboard.vue')
   }
 ]
 

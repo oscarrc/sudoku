@@ -1,5 +1,5 @@
 <template>
   <v-main>
-    <h1>GAME</h1>
+    <h1>Leaderboard</h1>
   </v-main>
 </template>
