@@ -75,7 +75,7 @@ const fillGrid = (grid) => {
                     if(checkGrid(grid)) return true
                     else if(fillGrid(grid)) return true
                 }
-            };
+            }
             break;
         } 
     }
