@@ -6,7 +6,7 @@ const generateSudoku = (level = 10, size = 9) => {
     let solution = [...Array(size)].map(() => Array(size).fill(0));
     let puzzle = [...Array(size)].map(() => Array(size).fill(0));
 
-    return new Promise( (resolve, reject) => {
+    return new Promise( (resolve) => {
         let attempts = level;
         
         fillGrid(grid);
