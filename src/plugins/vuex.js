@@ -7,7 +7,11 @@ const defaultState = {
   time: 0,
   solved: false,
   shown: false,
-  loading: false
+  loading: false,
+  puzzle: {
+    grid: [],
+    solution: []
+  }
 }
 
 export default new Vuex.Store({
