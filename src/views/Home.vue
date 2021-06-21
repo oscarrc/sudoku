@@ -20,9 +20,30 @@
                   <span class="ml-2">Generating</span>
                 </template>
               </v-btn>
+            </v-col>            
+            <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
+              <v-select
+                background-color="primary"
+                color="white"
+                hide-details="true"
+                :disabled="loading" 
+                :items="levels"
+                :value="levels[level -1]"
+                @change="setLevel"
+                solo
+                dense
+              >
+                <template v-slot:selection="{ item }">
+                  <span class="d-flex justify-center white--text subtitle-2 pl-8" style="width: 100%;">
+                    LEVEL :  {{ item.text }}
+                  </span>
+                </template>
+              </v-select>
             </v-col>
             <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-              <v-btn block color="primary">LEADERBOARDS</v-btn>
+              <router-link to="/leaderboard">
+                <v-btn block color="primary">LEADERBOARDS</v-btn>
+              </router-link>
             </v-col>
           </v-row>
         </v-container>
@@ -32,17 +53,35 @@
 
 <script>
   import { mapState } from 'vuex';
-
+  
   export default {
     name: 'Home',
-    computed: mapState(['loading']),
-    components: {
-      
+    computed: {
+      ...mapState(['loading', 'level'])
+    },
+    data() {
+      return {
+        levels: [
+          { text:"Easy", value: 1},
+          { text:"Medium", value: 2},
+          { text:"Hard", value: 3 }
+        ]
+      }
     },
     methods: {
-      startGame(){
-        this.$store.dispatch("toggleLoading");
-        this.$store.commit("toggleLoading");
+      startGame(){        
+        let level = Math.random() * (this.level * 10 - (this.level - 1) * 10) + this.level * 10;
+        
+        this.$store.commit('setLoading', true)
+        setTimeout(() => {
+          this.$store.dispatch('startGame', level).then(() => {
+            this.$store.commit('setLoading', false)
+            this.$router.push('game')
+          }); 
+        }, 100)
+      },
+      setLevel(level){
+        this.$store.commit('setLevel', level)
       }
     }
   }

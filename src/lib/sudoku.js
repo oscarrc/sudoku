@@ -1,7 +1,7 @@
 let solutions = 0;
 
 // Initializes a new grid, puzzle and solution
-const generateSudoku = (level = 10, size = 9) => {
+const generateSudoku = (level = 20, size = 9) => {
     let grid = [...Array(size)].map(() => Array(size).fill(0));
     let solution = [...Array(size)].map(() => Array(size).fill(0));
     let puzzle = [...Array(size)].map(() => Array(size).fill(0));
@@ -33,9 +33,7 @@ const generateSudoku = (level = 10, size = 9) => {
             }
         }
 
-        puzzle = grid.map(row => row.slice());
-
-        resolve({grid, puzzle, solution})
+        resolve({grid, solution})
     })
 }
 
