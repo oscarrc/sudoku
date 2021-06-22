@@ -2,11 +2,13 @@
     <v-app-bar app elevation="0" color="transparent" class="px-4">
       <v-toolbar-title>
         <router-link to="/" class="black--text text-decoration-none">
-          <span>数独</span> Sudoku
+          <span class="red--text">数独</span> Sudoku
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-chip outlined>{{ timer }}</v-chip>
+      <v-chip outlined color="red">
+        <span class="black--text">{{ timer }}</span>
+      </v-chip>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
