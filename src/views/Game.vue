@@ -4,7 +4,7 @@
       <v-layout fill-height>
         <v-container class="d-flex align-center">
           <v-row justify="center">
-            <v-col xs="12" sm="10" md="8">
+            <v-col cols="12" sm="10" md="8" :class="loading ? 'blurred' : ''">
               <Sudoku />
             </v-col>
           </v-row>
@@ -20,7 +20,7 @@
 
   export default {
     name: 'Game',
-    computed: mapState(['puzzle', 'time']),
+    computed: mapState(['puzzle', 'time', 'loading']),
     components: {
       Header,
       Sudoku
@@ -51,3 +51,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .blurred{
+    filter: blur(5px)
+  }
+</style>

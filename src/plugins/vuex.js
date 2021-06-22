@@ -25,7 +25,11 @@ export default new Vuex.Store({
     setShown(state, payload){ state.shown = payload },
     setLevel(state, payload){ state.level = payload },
     resetTime(state){ state.time = 0 },
-    addTime(state){ state.time += 1 }
+    addTime(state, payload){ state.time += payload ? payload : 1 },
+    setCell(state, payload){ 
+      const { row, col, value } = payload;
+      state.puzzle.grid[row][col] = value;
+    },
   },
   actions: {
     startGame({ commit }, level){
