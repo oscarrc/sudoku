@@ -1,11 +1,11 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-row v-for="row, rindex in puzzle.grid" v-bind:key="rindex" class="justify-center">
-      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '' + cindex" :class="'bordered d-flex justify-center py-5 ' + cellClasses(rindex, cindex)">
-        <span v-if="col !== 0">{{ col }}</span>
+      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '' + cindex" :class="'bordered d-flex justify-center py-1 py-sm-2 py-md-3 py-lg-5 ' + cellClasses(rindex, cindex)">
+        <span class="cell" v-if="col !== 0">{{ col }}</span>
         <v-menu v-else>
           <template v-slot:activator="{ on, attrs }">
-            <span v-bind="attrs" v-on="on"> </span>
+            <span class="cell" v-bind="attrs" v-on="on"> </span>
           </template>  
           <span>Menu</span>  
         </v-menu>

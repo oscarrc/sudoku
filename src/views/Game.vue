@@ -4,7 +4,7 @@
       <v-layout fill-height>
         <v-container class="d-flex align-center">
           <v-row justify="center">
-            <v-col cols="8">
+            <v-col xs="12" sm="10" md="8">
               <Sudoku />
             </v-col>
           </v-row>
