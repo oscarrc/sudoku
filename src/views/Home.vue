@@ -62,9 +62,9 @@
     data() {
       return {
         levels: [
-          { text:"Easy", value: 1},
-          { text:"Medium", value: 2},
-          { text:"Hard", value: 3 }
+          { text:"Easy 😃", value: 1},
+          { text:"Medium 🤨", value: 2},
+          { text:"Hard 😨", value: 3 }
         ]
       }
     },
