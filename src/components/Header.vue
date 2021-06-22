@@ -18,7 +18,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn icon v-on="{ ...tooltip }">
+          <v-btn icon v-on="{ ...tooltip }" @click="showSolution">
             <v-icon>mdi-flag-checkered</v-icon>
           </v-btn>
         </template>

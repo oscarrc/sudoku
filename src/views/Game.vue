@@ -1,15 +1,11 @@
 <template>
-    <v-main>
-      
+    <v-main>      
       <Header />
       <v-layout fill-height>
         <v-container class="d-flex align-center">
-          <v-row>
+          <v-row justify="center">
             <v-col cols="8">
-              <h1>GAME</h1>
-            </v-col>
-            <v-col cols="4">
-              <h2>Leaderboard</h2>
+              <Sudoku />
             </v-col>
           </v-row>
         </v-container>
@@ -20,12 +16,14 @@
 <script>
   import { mapState } from 'vuex';
   import Header from '@/components/Header';
+  import Sudoku from '@/components/Sudoku';
 
   export default {
     name: 'Game',
     computed: mapState(['puzzle', 'time']),
     components: {
-      Header
+      Header,
+      Sudoku
     },
     data() {
       return {

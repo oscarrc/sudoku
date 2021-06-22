@@ -70,7 +70,7 @@
     },
     methods: {
       startGame(){        
-        let level = Math.random() * (this.level * 10 - (this.level - 1) * 10) + this.level * 10;
+        let level = Math.random() * (this.level * 5 - (this.level - 1) * 5) + this.level * 5;
         
         this.$store.commit('setLoading', true);
         
