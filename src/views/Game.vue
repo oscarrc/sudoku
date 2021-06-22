@@ -1,16 +1,20 @@
 <template>
-  <section>
-    <Header />
     <v-main>
+      
+      <Header />
       <v-layout fill-height>
         <v-container class="d-flex align-center">
-          <v-row class="flex-column">
-            <h1>GAME</h1>
+          <v-row>
+            <v-col cols="8">
+              <h1>GAME</h1>
+            </v-col>
+            <v-col cols="4">
+              <h2>Leaderboard</h2>
+            </v-col>
           </v-row>
         </v-container>
       </v-layout>
     </v-main>
-  </section>
 </template>
 
 <script>
@@ -18,7 +22,7 @@
   import Header from '@/components/Header';
 
   export default {
-    name: 'Home',
+    name: 'Game',
     computed: mapState(['puzzle', 'time']),
     components: {
       Header
@@ -37,6 +41,10 @@
     },
     destroyed: function(){
       clearInterval(this.timer);
+      this.$store.commit('setPuzzle', { grid: [], solution: [] });
+      this.$store.commit('setSolved', false);
+      this.$store.commit('setShown', false);
+      this.$store.commit('resetTime', false);
     },
     methods: {
       startTimer: function(){

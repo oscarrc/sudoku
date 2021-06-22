@@ -72,7 +72,8 @@
       startGame(){        
         let level = Math.random() * (this.level * 10 - (this.level - 1) * 10) + this.level * 10;
         
-        this.$store.commit('setLoading', true)
+        this.$store.commit('setLoading', true);
+        
         setTimeout(() => {
           this.$store.dispatch('startGame', level).then(() => {
             this.$store.commit('setLoading', false)
