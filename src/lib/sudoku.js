@@ -32,8 +32,9 @@ const generateSudoku = (level = 20, size = 9) => {
                 attempts -= 1;
             }
         }
+        puzzle = grid.map(row => row.slice());
 
-        resolve({grid, solution})
+        resolve({grid, solution, puzzle})
     })
 }
 

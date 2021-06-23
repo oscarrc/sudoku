@@ -21,7 +21,7 @@
   export default {
     name: 'Game',
     computed: {
-      ...mapState(['puzzle', 'time', 'loading'])
+      ...mapState(['sudoku', 'time', 'loading'])
     },
     components: {
       Header,
@@ -33,7 +33,7 @@
       }
     },
     created: function(){
-      if(this.puzzle.grid.length == 0){
+      if(this.sudoku.grid.length == 0){
         this.$router.push('/')
       }else{
         this.startTimer()
@@ -45,7 +45,7 @@
     },
     destroyed: function(){
       clearInterval(this.timer);
-      this.$store.commit('setPuzzle', { grid: [], solution: [] });
+      this.$store.commit('setSudoku', { grid: [], solution: [], puzzle: [] });
       this.$store.commit('setSolved', false);
       this.$store.commit('setShown', false);
       this.$store.commit('resetTime', false);

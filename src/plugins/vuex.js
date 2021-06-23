@@ -10,8 +10,9 @@ const defaultState = {
   shown: false,
   loading: false,
   level: 1,
-  puzzle: {
+  sudoku: {
     grid: [],
+    puzzle: [],
     solution: []
   }
 }
@@ -20,7 +21,7 @@ export default new Vuex.Store({
   state: defaultState,
   mutations: { 
     setLoading(state, payload){ state.loading = payload },
-    setPuzzle(state, payload){ state.puzzle = payload },
+    setSudoku(state, payload){ state.sudoku = payload },
     setSolved(state, payload){ state.solved = payload },
     setShown(state, payload){ state.shown = payload },
     setLevel(state, payload){ state.level = payload },
@@ -28,13 +29,13 @@ export default new Vuex.Store({
     addTime(state, payload){ state.time += payload ? payload : 1 },
     setCell(state, payload){ 
       const { row, col, value } = payload;
-      state.puzzle.grid[row][col] = value;
+      state.sudoku.grid[row][col] = value;
     },
   },
   actions: {
     startGame({ commit }, level){
-      generateSudoku(level).then((puzzle) => {
-        commit('setPuzzle', puzzle);
+      generateSudoku(level).then((sudoku) => {
+        commit('setSudoku', sudoku);
       })
     }
   },
