@@ -6,7 +6,7 @@
         </router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-chip outlined color="red">
+      <v-chip outlined :disabled="shown" color="red">
         {{ emoji }} <span class="black--text pl-2">{{ timer }}</span>
       </v-chip>
       <v-spacer class="d-none d-sm-flex"></v-spacer>
@@ -38,11 +38,12 @@
 </template>
 
 <script>
-  import { mapGetters, mapMutations } from 'vuex';
+  import { mapGetters, mapMutations, mapState } from 'vuex';
 
   export default {
     name: 'Header',
     computed: {
+      ...mapState(['shown']),
       ...mapGetters(['timer', 'emoji'])
     },
     methods: {      
