@@ -21,7 +21,7 @@
   export default {
     name: 'Game',
     computed: {
-      ...mapState(['sudoku', 'time', 'loading']),
+      ...mapState(['sudoku', 'time', 'loading', 'shown']),
       ...mapGetters(['solved'])
     },
     components: {
