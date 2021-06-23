@@ -51,13 +51,9 @@ export default new Vuex.Store({
 
         return `${h}:${m}:${s}`;
     },
-    emoji: state => {
-      let levels = ["😃", "🤨", "😨"];
-      return levels[state.level - 1]
-    },
     solved: state => {
-      let { grid, solution } = state.sudoku;
-
+      const { grid, solution } = state.sudoku;
+      
       for( let row = 0; row < grid.length; row++ ){
         for( let col = 0; col < grid[row].length; col++ ){
           if(grid[row][col] !== solution[row][col]){
@@ -66,7 +62,11 @@ export default new Vuex.Store({
         }
       }
 
-      return true;
-    }
+      return grid.length ? true : false;
+    },
+    emoji: state => {
+      let levels = ["😃", "🤨", "😨"];
+      return levels[state.level - 1]
+    },
   }
 })
