@@ -20,7 +20,9 @@
 
   export default {
     name: 'Game',
-    computed: mapState(['puzzle', 'time', 'loading']),
+    computed: {
+      ...mapState(['puzzle', 'time', 'loading'])
+    },
     components: {
       Header,
       Sudoku

@@ -7,7 +7,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-chip outlined color="red">
-        <span class="black--text">{{ timer }}</span>
+        {{ emoji }} <span class="black--text pl-2">{{ timer }}</span>
       </v-chip>
       <v-spacer class="d-none d-sm-flex"></v-spacer>
       <v-tooltip bottom>
@@ -40,15 +40,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex';
+
   export default {
     name: 'Header',
     computed: {
-      ...mapState['puzzle', 'time', 'level'],
-      timer() { return this.$store.getters.getTime }
+      ...mapGetters(['timer', 'emoji']),
+      ...mapMutations(['setShown'])
     },
     methods: {
-      showSolution: function() { this.$store.commit('setShown', true) }
+      showSolution: function() { this.setShown(true) }
     }
   }
 </script>

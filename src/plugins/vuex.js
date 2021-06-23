@@ -39,7 +39,7 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getTime: state => {
+    timer: state => {
         let time = state.time;
         let h = Math.floor(time / 3600);
         let m = Math.floor(time % 3600 / 60);
@@ -50,6 +50,10 @@ export default new Vuex.Store({
         s = s < 10 ? "0" + s : s;
 
         return `${h}:${m}:${s}`;
+    },
+    emoji: state => {
+      let levels = ["😃", "🤨", "😨"];
+      return levels[state.level - 1]
     }
   }
 })

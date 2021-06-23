@@ -8,7 +8,7 @@
               <h2 class="text-center">SUDOKU</h2>
             </v-col>
             <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-              <v-btn block color="primary" :loading="loading" :disabled="loading" @click="startGame">
+              <v-btn block color="primary" :loading="loading" :disabled="loading" @click="start">
                 START
                 <template v-slot:loader>
                   <v-progress-circular
@@ -52,7 +52,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapActions, mapMutations, mapState } from 'vuex';
   
   export default {
     name: 'Home',
@@ -68,21 +68,20 @@
         ]
       }
     },
-    methods: {
-      startGame(){        
+    methods: {      
+      ...mapMutations(['setLoading', 'setLevel']),
+      ...mapActions(['startGame']),
+      start(){        
         let level = Math.random() * (this.level * 5 - (this.level - 1) * 5) + this.level * 5;
         
-        this.$store.commit('setLoading', true);
+        this.setLoading(true);
         
         setTimeout(() => {
-          this.$store.dispatch('startGame', level).then(() => {
-            this.$store.commit('setLoading', false)
+          this.startGame(level).then(() => {
+            this.setLoading(false);
             this.$router.push('game')
-          }); 
+          });
         }, 100)
-      },
-      setLevel(level){
-        this.$store.commit('setLevel', level)
       }
     }
   }
