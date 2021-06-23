@@ -6,9 +6,10 @@ Vue.use(Vuex);
 
 const defaultState = {
   time: 0,
+  level: 1,
   shown: false,
   loading: false,
-  level: 1,
+  check: false,
   sudoku: {
     grid: [],
     puzzle: [],
