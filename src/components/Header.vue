@@ -28,9 +28,11 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
-            <v-icon>mdi-restart</v-icon>
-          </v-btn>
+          <router-link to="/" class="text-decoration-none">
+            <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
+              <v-icon>mdi-restart</v-icon>
+            </v-btn>
+          </router-link>
         </template>
         <span class="text-center">Start a new game</span>
       </v-tooltip>
@@ -42,7 +44,7 @@ import { mapState } from 'vuex'
   export default {
     name: 'Header',
     computed: {
-      ...mapState['puzzle', 'time'],
+      ...mapState['puzzle', 'time', 'level'],
       timer() { return this.$store.getters.getTime }
     },
     methods: {
