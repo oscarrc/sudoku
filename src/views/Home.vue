@@ -90,7 +90,8 @@
       ...mapMutations(['setLoading', 'setLevel']),
       ...mapActions(['startGame']),
       start(){        
-        let level = Math.random() * (this.level * 5 - (this.level - 1) * 5) + this.level * 5;
+        const min = this.level == 1 ? 1 : ((this.level - 1) * 5) + 1;
+        const level = Math.floor(Math.random() * ( (this.level * 5) - min + 1 ) + min );
         
         this.setLoading(true);
         
