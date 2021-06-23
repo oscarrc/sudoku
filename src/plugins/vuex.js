@@ -9,7 +9,7 @@ const defaultState = {
   level: 1,
   shown: false,
   loading: false,
-  check: false,
+  checked: false,
   sudoku: {
     grid: [],
     puzzle: [],
@@ -24,6 +24,7 @@ export default new Vuex.Store({
     setSudoku(state, payload){ state.sudoku = payload },
     setSolved(state, payload){ state.solved = payload },
     setShown(state, payload){ state.shown = payload },
+    setChecked(state, payload){ state.checked = payload },
     setLevel(state, payload){ state.level = payload },
     resetTime(state){ state.time = 0 },
     addTime(state, payload){ state.time += payload ? payload : 1 },
@@ -37,6 +38,12 @@ export default new Vuex.Store({
       generateSudoku(level).then((sudoku) => {
         commit('setSudoku', sudoku);
       })
+    },
+    checkErrors({ commit }){
+      commit('setChecked', true);
+      setTimeout(()=>{        
+        commit('setChecked', false);
+      }, 10000)
     }
   },
   getters: {

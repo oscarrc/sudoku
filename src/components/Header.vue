@@ -12,7 +12,7 @@
       <v-spacer class="d-none d-sm-flex"></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn :disabled="shown" class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
+          <v-btn :disabled="shown || checked" class="d-none d-sm-flex" icon v-on="{ ...tooltip }" @click="check">
             <v-icon>mdi-check-all</v-icon>
           </v-btn>
         </template>
@@ -20,7 +20,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn :disabled="shown" class="d-none d-sm-flex" icon v-on="{ ...tooltip }" @click="showSolution">
+          <v-btn :disabled="shown" class="d-none d-sm-flex" icon v-on="{ ...tooltip }" @click="solve">
             <v-icon>mdi-flag-checkered</v-icon>
           </v-btn>
         </template>
@@ -38,17 +38,22 @@
 </template>
 
 <script>
-  import { mapGetters, mapMutations, mapState } from 'vuex';
+  import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
 
   export default {
     name: 'Header',
     computed: {
-      ...mapState(['shown']),
+      ...mapState(['shown', 'checked']),
       ...mapGetters(['timer', 'emoji'])
     },
     methods: {      
-      ...mapMutations(['setShown']),
-      showSolution: function() { this.setShown(true) }
+      ...mapMutations(['setShown', 'addTime']),
+      ...mapActions(['checkErrors']),
+      solve: function() { this.setShown(true) },
+      check: function() {
+        this.checkErrors();
+        this.addTime(10);
+      }
     }
   }
 </script>
