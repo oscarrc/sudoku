@@ -36,6 +36,10 @@
       }else{
         this.startTimer()
       }
+
+      this.$store.watch( (state) => state.shown, (value) => {
+        if(value) clearInterval(this.timer)
+      })
     },
     destroyed: function(){
       clearInterval(this.timer);
