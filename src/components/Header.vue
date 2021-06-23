@@ -12,7 +12,7 @@
       <v-spacer class="d-none d-sm-flex"></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
+          <v-btn :disabled="shown" class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
             <v-icon>mdi-check-all</v-icon>
           </v-btn>
         </template>
@@ -20,7 +20,7 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }" @click="showSolution">
+          <v-btn :disabled="shown" class="d-none d-sm-flex" icon v-on="{ ...tooltip }" @click="showSolution">
             <v-icon>mdi-flag-checkered</v-icon>
           </v-btn>
         </template>
