@@ -25,8 +25,9 @@
       cellClasses(r, c){
         let bottom = (r + 1) % 3 === 0 && r > 0 && r < (this.sudoku.grid.length - 1) ? 'border-b' : '';
         let right = (c  + 1) % 3 === 0 && c > 0 && c < (this.sudoku.grid[r].length - 1) ? 'border-r' : '';
-        let solve = this.shown && this.sudoku.grid[r][c] != this.sudoku.solution[r][c] ? 'red--text' : '';
-        let padding = this.sudoku.grid[r][c] != 0 || this.shown ? 'py-1 py-sm-2 py-md-3 py-lg-5' : 'px-0 py-0'
+        let padding = this.sudoku.grid[r][c] != 0 || this.shown ? 'py-1 py-sm-2 py-md-3 py-lg-5' : 'px-0 py-0';        
+        let solve = this.shown ? ( this.sudoku.grid[r][c] != this.sudoku.solution[r][c] ? 'red--text' : ( this.sudoku.puzzle[r][c] == 0 ? 'green--text' : '' )) : '';
+
         return `${bottom} ${right} ${solve} ${padding}`
       },
       setCellValue(row, col, value){
