@@ -64,7 +64,8 @@ export default new Vuex.Store({
       
       for( let row = 0; row < grid.length; row++ ){
         for( let col = 0; col < grid[row].length; col++ ){
-          if(grid[row][col] !== solution[row][col]){
+          if(grid[row][col] != solution[row][col]){
+            console.log(grid[row][col], solution[row][col])
             return false
           }
         }

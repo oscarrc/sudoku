@@ -14,14 +14,15 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapGetters, mapState } from 'vuex';
   import Header from '@/components/Header';
   import Sudoku from '@/components/Sudoku';
 
   export default {
     name: 'Game',
     computed: {
-      ...mapState(['sudoku', 'time', 'loading'])
+      ...mapState(['sudoku', 'time', 'loading']),
+      ...mapGetters(['solved'])
     },
     components: {
       Header,
@@ -38,10 +39,17 @@
       }else{
         this.startTimer()
       }
-
-      this.$store.watch( (state) => state.shown, (value) => {
+    },
+    watch:{
+      shown(value){
         if(value) clearInterval(this.timer)
-      })
+      },
+      solved(value){
+        if(value){
+          clearInterval(this.timer)
+          alert("Solved")
+        }
+      }
     },
     destroyed: function(){
       clearInterval(this.timer);
