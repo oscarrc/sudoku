@@ -45,14 +45,17 @@
                 <v-list>
                   <v-list-item>
                     <v-list-item-title>🥇 First</v-list-item-title>
+                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
                     <v-list-item-subtitle class="text-right">01:00:00</v-list-item-subtitle>
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-title>🥈 Second</v-list-item-title>
+                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
                     <v-list-item-subtitle class="text-right">01:25:00</v-list-item-subtitle>
                   </v-list-item>
                   <v-list-item>
                     <v-list-item-title>🥉 Third</v-list-item-title>
+                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
                     <v-list-item-subtitle class="text-right">02:15:00</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
@@ -66,12 +69,13 @@
 </template>
 
 <script>
-  import { mapActions, mapMutations, mapState } from 'vuex';
+  import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
   
   export default {
     name: 'Home',
     computed: {
-      ...mapState(['loading', 'level'])
+      ...mapState(['loading', 'level']),
+      ...mapGetters(['emoji'])
     },
     data() {
       return {

@@ -43,10 +43,10 @@
   export default {
     name: 'Header',
     computed: {
-      ...mapGetters(['timer', 'emoji']),
-      ...mapMutations(['setShown'])
+      ...mapGetters(['timer', 'emoji'])
     },
-    methods: {
+    methods: {      
+      ...mapMutations(['setShown']),
       showSolution: function() { this.setShown(true) }
     }
   }
