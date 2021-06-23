@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 const defaultState = {
   time: 0,
-  solved: false,
   shown: false,
   loading: false,
   level: 1,
@@ -55,6 +54,19 @@ export default new Vuex.Store({
     emoji: state => {
       let levels = ["😃", "🤨", "😨"];
       return levels[state.level - 1]
+    },
+    solved: state => {
+      let { grid, solution } = state.sudoku;
+
+      for( let row = 0; row < grid.length; row++ ){
+        for( let col = 0; col < grid[row].length; col++ ){
+          if(grid[row][col] !== solution[row][col]){
+            return false
+          }
+        }
+      }
+
+      return true;
     }
   }
 })
