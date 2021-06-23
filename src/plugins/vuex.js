@@ -27,11 +27,8 @@ export default new Vuex.Store({
     resetTime(state){ state.time = 0 },
     addTime(state, payload){ state.time += payload ? payload : 1 },
     setCell(state, payload){ 
-      const { row, col, value, error } = payload;
-      state.puzzle.grid[row][col] = {
-        value,
-        error
-      };
+      const { row, col, value } = payload;
+      state.puzzle.grid[row][col] = value;
     },
   },
   actions: {
