@@ -28,11 +28,9 @@
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ on: tooltip }">
-          <router-link to="/" class="text-decoration-none">
-            <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }">
-              <v-icon>mdi-restart</v-icon>
-            </v-btn>
-          </router-link>
+          <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }" to="/">
+            <v-icon>mdi-restart</v-icon>
+          </v-btn>
         </template>
         <span class="text-center">Start a new game</span>
       </v-tooltip>

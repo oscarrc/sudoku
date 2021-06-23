@@ -41,9 +41,23 @@
               </v-select>
             </v-col>
             <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-              <router-link to="/leaderboard">
-                <v-btn block color="primary">LEADERBOARDS</v-btn>
-              </router-link>
+              <v-card>
+                <v-list>
+                  <v-list-item>
+                    <v-list-item-title>🥇 First</v-list-item-title>
+                    <v-list-item-subtitle class="text-right">01:00:00</v-list-item-subtitle>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-title>🥈 Second</v-list-item-title>
+                    <v-list-item-subtitle class="text-right">01:25:00</v-list-item-subtitle>
+                  </v-list-item>
+                  <v-list-item>
+                    <v-list-item-title>🥉 Third</v-list-item-title>
+                    <v-list-item-subtitle class="text-right">02:15:00</v-list-item-subtitle>
+                  </v-list-item>
+                </v-list>
+                <v-btn block color="primary" class="flat-top-button" to="/leaderboard">LEADERBOARDS</v-btn>
+              </v-card>
             </v-col>
           </v-row>
         </v-container>
@@ -86,3 +100,10 @@
     }
   }
 </script>
+
+<style scoped>
+  .flat-top-button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+</style>
