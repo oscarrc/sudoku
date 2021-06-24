@@ -10,12 +10,14 @@
           </v-row>
         </v-container>
       </v-layout>
+      <Dialog />
     </v-main>
 </template>
 
 <script>
   import { mapGetters, mapState } from 'vuex';
   import Header from '@/components/Header';
+  import Dialog from '@/components/Dialog';
   import Sudoku from '@/components/Sudoku';
 
   export default {
@@ -26,6 +28,7 @@
     },
     components: {
       Header,
+      Dialog,
       Sudoku
     },
     data() {
