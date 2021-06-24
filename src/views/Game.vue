@@ -48,10 +48,7 @@
         if(value) clearInterval(this.timer)
       },
       solved(value){
-        if(value){
-          clearInterval(this.timer)
-          alert("Solved")
-        }
+        if(value) clearInterval(this.timer)
       }
     },
     destroyed: function(){
