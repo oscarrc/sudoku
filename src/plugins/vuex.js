@@ -30,7 +30,9 @@ export default new Vuex.Store({
     addTime(state, payload){ state.time += payload ? payload : 1 },
     setCell(state, payload){ 
       const { row, col, value } = payload;
-      state.sudoku.grid[row][col] = value;
+      let grid = state.sudoku.grid;
+      grid[row][col] = value;
+      state.sudoku = { ...state.sudoku, grid }
     },
   },
   actions: {
