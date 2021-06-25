@@ -7,7 +7,7 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-chip outlined :disabled="shown" color="red">
-      {{ emoji }} <span class="black--text pl-2">{{ timer }}</span>
+      {{ emoji }} <span class="black--text pl-2">{{ time | format }}</span>
     </v-chip>
     <v-spacer class="d-none d-sm-flex"></v-spacer>
     <v-tooltip bottom>
@@ -43,8 +43,8 @@
   export default {
     name: 'Header',
     computed: {
-      ...mapState(['shown', 'checked']),
-      ...mapGetters(['timer', 'emoji', 'solved'])
+      ...mapState(['shown', 'checked', 'time']),
+      ...mapGetters(['emoji', 'solved'])
     },
     methods: {      
       ...mapMutations(['setShown', 'addTime']),

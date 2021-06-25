@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="bg">
     <router-view/>    
     <v-footer color="transparent">
       <v-col cols="12" sm="6" class="text-center text-sm-left">Made with <v-icon color="red" small>mdi-cards-heart</v-icon> by <a class="red--text text-decoration-none" href="https://oscarrc.me" target="_BLANK">Oscar R.C.</a></v-col>
@@ -22,3 +22,11 @@
     }
   }
 </script>
+
+<style scoped>
+  /* .theme--light.v-application{
+    background-image: url('assets/image/bg.png');
+    background-size: 100% auto;
+    background-position: left bottom;
+  } */
+</style>

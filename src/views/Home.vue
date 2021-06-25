@@ -29,7 +29,7 @@
                 :disabled="loading" 
                 :items="levels"
                 :value="levels[level -1]"
-                @change="setLevel"
+                @change="selectLevel"
                 solo
                 dense
               >
@@ -41,23 +41,23 @@
               </v-select>
             </v-col>
             <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-              <v-card>
-                <v-list>
-                  <v-list-item>
-                    <v-list-item-title>🥇 First</v-list-item-title>
-                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
-                    <v-list-item-subtitle class="text-right">01:00:00</v-list-item-subtitle>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-title>🥈 Second</v-list-item-title>
-                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
-                    <v-list-item-subtitle class="text-right">01:25:00</v-list-item-subtitle>
-                  </v-list-item>
-                  <v-list-item>
-                    <v-list-item-title>🥉 Third</v-list-item-title>
-                    <v-list-item-icon>{{ emoji }}</v-list-item-icon>
-                    <v-list-item-subtitle class="text-right">02:15:00</v-list-item-subtitle>
-                  </v-list-item>
+              <v-card :loading="fetching">
+                <v-list :class="top.length == 0 ? 'py-0' : ''">
+                  <template v-if="fetching">
+                    <v-skeleton-loader v-for="i in [0,1,2]"
+                      v-bind:key="i"
+                      v-bind="attrs"
+                      type="list-item"
+                      class="py-1"
+                    ></v-skeleton-loader>
+                  </template>
+                  <template v-else>
+                    <v-list-item v-for="time, idx in top" v-bind:key="time.id">
+                      <v-list-item-title>{{ medals[idx] }} {{ time.username }}</v-list-item-title>
+                      <v-list-item-icon>{{ emoji }}</v-list-item-icon>
+                      <v-list-item-subtitle class="text-right">{{ time.time | format }}</v-list-item-subtitle>
+                    </v-list-item>
+                  </template>
                 </v-list>
                 <v-btn block color="primary" class="flat-top-button" to="/leaderboard">LEADERBOARDS</v-btn>
               </v-card>
@@ -70,6 +70,7 @@
 
 <script>
   import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
+  import { supabase } from '@/lib/supabase';
   
   export default {
     name: 'Home',
@@ -83,8 +84,14 @@
           { text:"Easy 😃", value: 1},
           { text:"Medium 🤨", value: 2},
           { text:"Hard 😨", value: 3 }
-        ]
+        ],
+        medals: ['🥇', '🥈', '🥉'],
+        top: [],
+        fetching: false
       }
+    },
+    created(){
+      this.getTop(this.level)
     },
     methods: {      
       ...mapMutations(['setLoading', 'setLevel']),
@@ -101,6 +108,16 @@
             this.$router.push('game')
           });
         }, 100)
+      },
+      selectLevel(level){
+        this.setLevel(level);
+        this.getTop();
+      },
+      async getTop(){
+        this.fetching = true;
+        let { data: times } = await supabase.from('times').select('*').eq('level', this.level).order('time', { ascending: true }).range(0,3);
+        this.fetching = false;
+        this.top = times;
       }
     }
   }
