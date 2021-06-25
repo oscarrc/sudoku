@@ -1,5 +1,5 @@
 <template>
-    <v-dialog :value="true" persistent max-width="350">
+    <v-dialog :value="solved" persistent max-width="350">
         <v-card>
             <v-card-title class="text-h5 justify-center">
                 CONGRATULATIONS
