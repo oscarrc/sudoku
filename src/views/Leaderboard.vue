@@ -83,6 +83,7 @@
         this.getTimes()
       },
       goToPage(page){
+        if(page == this.page) return;
         this.setPage(page)
         this.getTimes()
       }
