@@ -5,24 +5,27 @@
         <v-row justify="center">
           <v-col cols="10" sm="8" md="6" :class="fetching ? 'blurred' : ''">
             <v-list elevation="2">
-              <v-list-item>
-                <template v-if="fetching">
-                    <v-skeleton-loader v-for="i in [0,1,2]"
-                      v-bind:key="i"
-                      type="list-item"
-                      class="py-1"
-                    ></v-skeleton-loader>
-                  </template>
-                  <template v-else>
-                    <v-list-item v-for="time, idx in times" v-bind:key="time.id">
-                      <v-list-item-avatar>
-                        <span class="h6">{{ medals.length > idx ? medals[idx] : idx + 1 }}</span>
-                      </v-list-item-avatar>
-                      <v-list-item-title>{{ time.username }} <br/> <span class="caption text--secondary">{{ time.date }}</span> </v-list-item-title>
-                      <v-list-item-subtitle class="text-right black--text font-weight-medium">{{ time.time | format }}</v-list-item-subtitle>
-                    </v-list-item>
-                  </template>
-              </v-list-item>
+              <template v-if="fetching">
+                  <v-skeleton-loader v-for="i in [0,1,2]"
+                    v-bind:key="i"
+                    type="list-item"
+                    class="py-1"
+                  ></v-skeleton-loader>
+                </template>
+                <template v-if="!fetching && times.length > 0">
+                  <v-list-item v-for="time, idx in times" v-bind:key="time.id">
+                    <v-list-item-avatar>
+                      <span class="h6">{{ medals.length > idx ? medals[idx] : idx + 1 }}</span>
+                    </v-list-item-avatar>
+                    <v-list-item-title>{{ time.username }} <br/> <span class="caption text--secondary">{{ time.date }}</span> </v-list-item-title>
+                    <v-list-item-subtitle class="text-right black--text font-weight-medium">{{ time.time | format }}</v-list-item-subtitle>
+                  </v-list-item>
+                </template>
+                <template v-else>
+                  <v-list-item>
+                    <v-list-item-title class="text-center h4">No one has tried yet</v-list-item-title>
+                  </v-list-item>
+                </template>
             </v-list>
           </v-col>
         </v-row>
@@ -94,5 +97,8 @@
 <style scoped>
   .blurred{
     filter: blur(5px)
+  }
+  .v-list-item:not(:last-child){
+    border-bottom: 0.5px solid lightgray;
   }
 </style>
