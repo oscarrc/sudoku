@@ -23,9 +23,9 @@
                 </template>
                 <template v-else>
                   <v-list-item>
-                    <v-list-item-title class="text-center h4">
+                    <v-list-item-title class="text-center h4 py-2">
                       No one has tried yet <br>
-                      <v-btn to="/" class="mt-4 outlined">Want to be first?</v-btn>
+                      <v-btn to="/" outlined class="mt-4">Want to be first?</v-btn>
                     </v-list-item-title>
                   </v-list-item>
                 </template>
