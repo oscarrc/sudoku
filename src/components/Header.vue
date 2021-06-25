@@ -39,10 +39,10 @@
     </v-tooltip>
 
     <template v-slot:extension v-if="route == 'Leaderboard'">
-      <v-tabs centered show-arrows>
-         <v-tab>😃 Easy</v-tab>
-         <v-tab>🤨 Medium</v-tab>
-         <v-tab>😨 Hard</v-tab>
+      <v-tabs centered show-arrows v-model="tab">
+         <v-tab @change="level">😃 Easy</v-tab>
+         <v-tab @change="level">🤨 Medium</v-tab>
+         <v-tab @change="level">😨 Hard</v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
@@ -54,17 +54,26 @@
   export default {
     name: 'Header',
     props: ['route'],
+    data(){
+      return {
+        tab: 0
+      }
+    },
     computed: {
       ...mapState(['shown', 'checked', 'time']),
       ...mapGetters(['emoji', 'solved']),    
     },
     methods: {      
-      ...mapMutations(['setShown', 'addTime']),
+      ...mapMutations(['setShown', 'setLevel', 'setPage', 'addTime']),
       ...mapActions(['checkErrors']),
       solve: function() { this.setShown(true) },
       check: function() {
         this.checkErrors();
         this.addTime(10);
+      },
+      level: function() {
+        this.setPage(1);
+        this.setLevel(this.tab + 1)
       }
     }
   }

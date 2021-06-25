@@ -7,6 +7,7 @@ Vue.use(Vuex);
 const defaultState = {
   time: 0,
   level: 1,
+  page: 1,
   shown: false,
   loading: false,
   checked: false,
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     setShown(state, payload){ state.shown = payload },
     setChecked(state, payload){ state.checked = payload },
     setLevel(state, payload){ state.level = payload },
+    setPage(state, payload){ state.page = payload },
+    nextPage(state){ state.page += 1 },
+    prevPage(state){ if(state.page > 1) state.page -= 1},
     resetTime(state){ state.time = 0 },
     addTime(state, payload){ state.time += payload ? payload : 1 },
     setCell(state, payload){ 
