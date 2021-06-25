@@ -27,7 +27,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-pagination :length="total" :value="page" :total-visible="7">
+      <v-pagination v-if="total > 0" :length="total" :value="page" :total-visible="7" @next="nextPage" @previous="prevPage" @input="goToPage">
       </v-pagination>
     </v-layout>
   </v-main>
@@ -80,6 +80,10 @@
       },
       prevPage(){        
         this.setPage(this.page - 1)
+        this.getTimes()
+      },
+      goToPage(page){
+        this.setPage(page)
         this.getTimes()
       }
     }
