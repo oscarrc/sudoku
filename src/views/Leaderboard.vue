@@ -23,7 +23,10 @@
                 </template>
                 <template v-else>
                   <v-list-item>
-                    <v-list-item-title class="text-center h4">No one has tried yet</v-list-item-title>
+                    <v-list-item-title class="text-center h4">
+                      No one has tried yet <br>
+                      <v-btn to="/" class="mt-4 outlined">Want to be first?</v-btn>
+                    </v-list-item-title>
                   </v-list-item>
                 </template>
             </v-list>
