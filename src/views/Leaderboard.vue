@@ -1,7 +1,7 @@
 <template>
   <v-main>
-    <v-layout fill-height>
-      <v-container class="d-flex align-center">
+    <v-layout fill-height class="flex-column">
+      <v-container class="d-flex align-center flex-grow-1">
         <v-row justify="center">
           <v-col cols="10" sm="8" md="6" :class="fetching ? 'blurred' : ''">
             <v-list elevation="2">
@@ -18,8 +18,8 @@
                       <v-list-item-avatar>
                         <span class="h6">{{ medals.length > idx ? medals[idx] : idx + 1 }}</span>
                       </v-list-item-avatar>
-                      <v-list-item-title>{{ time.username }}</v-list-item-title>
-                      <v-list-item-subtitle class="text-right">{{ time.time | format }}</v-list-item-subtitle>
+                      <v-list-item-title>{{ time.username }} <br/> <span class="caption text--secondary">{{ time.date }}</span> </v-list-item-title>
+                      <v-list-item-subtitle class="text-right black--text font-weight-medium">{{ time.time | format }}</v-list-item-subtitle>
                     </v-list-item>
                   </template>
               </v-list-item>
@@ -27,12 +27,14 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-pagination :length="total" :value="page" :total-visible="7">
+      </v-pagination>
     </v-layout>
   </v-main>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapMutations, mapState } from 'vuex'
   import supabase from '@/lib/supabase';
 
   export default {
@@ -40,6 +42,7 @@
     data(){
       return {
         fetching: false,
+        total: 1,
         times: [],
         medals: ['🥇', '🥈', '🥉'],
       }
@@ -49,16 +52,16 @@
     },
     created(){
       this.getTimes()
+      this.getTotalPages();
     },
     watch: {
       level(){
-        this.getTimes()
-      },
-      page(){
+        this.getTotalPages();
         this.getTimes()
       }
     },
     methods: {
+      ...mapMutations(['setPage']),
       async getTimes(){
         const start = (this.page - 1) * 10;
         const end = this.page * 10;
@@ -66,6 +69,18 @@
         let { data: times } = await supabase.from('times').select('*').eq('level', this.level).order('time', { ascending: true }).range(start, end);
         this.fetching = false;
         this.times = times;
+      },
+      async getTotalPages(){
+        const { count } = await supabase.from('times').select('username', { count: 'exact' }).eq('level', this.level);
+        this.total = Math.ceil(count / 10);
+      },
+      nextPage(){
+        this.setPage(this.page + 1)
+        this.getTimes()
+      },
+      prevPage(){        
+        this.setPage(this.page - 1)
+        this.getTimes()
       }
     }
   }

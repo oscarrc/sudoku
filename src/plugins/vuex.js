@@ -28,8 +28,6 @@ export default new Vuex.Store({
     setChecked(state, payload){ state.checked = payload },
     setLevel(state, payload){ state.level = payload },
     setPage(state, payload){ state.page = payload },
-    nextPage(state){ state.page += 1 },
-    prevPage(state){ if(state.page > 1) state.page -= 1},
     resetTime(state){ state.time = 0 },
     addTime(state, payload){ state.time += payload ? payload : 1 },
     setCell(state, payload){ 
@@ -59,7 +57,6 @@ export default new Vuex.Store({
       for( let row = 0; row < grid.length; row++ ){
         for( let col = 0; col < grid[row].length; col++ ){
           if(grid[row][col] != solution[row][col]){
-            console.log(grid[row][col], solution[row][col])
             return false
           }
         }
