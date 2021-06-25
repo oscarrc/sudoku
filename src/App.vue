@@ -1,5 +1,6 @@
 <template>
   <v-app class="bg">
+    <Header v-if="route !== 'Home'" :route="route" />
     <router-view/>    
     <v-footer color="transparent">
       <v-col cols="12" sm="6" class="text-center text-sm-left">Made with <v-icon color="red" small>mdi-cards-heart</v-icon> by <a class="red--text text-decoration-none" href="https://oscarrc.me" target="_BLANK">Oscar R.C.</a></v-col>
@@ -13,8 +14,18 @@
 </template>
 
 <script>
+  import Header from '@/components/Header';
+
   export default {
     name: 'App',
+    components: {
+      Header
+    },
+    computed: {
+      route() {
+        return this.$route.name;
+      }
+    },
     data: function() {
       return {
         audio: new Audio(require("@/assets/music/music.mp3"))

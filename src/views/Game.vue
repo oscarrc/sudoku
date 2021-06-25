@@ -1,6 +1,6 @@
 <template>
     <v-main>      
-      <Header />
+      <!-- <Header /> -->
       <v-layout fill-height>
         <v-container class="d-flex align-center">
           <v-row justify="center">
@@ -16,7 +16,7 @@
 
 <script>
   import { mapGetters, mapState } from 'vuex';
-  import Header from '@/components/Header';
+  // import Header from '@/components/Header';
   import Dialog from '@/components/Dialog';
   import Sudoku from '@/components/Sudoku';
 
@@ -27,7 +27,7 @@
       ...mapGetters(['solved'])
     },
     components: {
-      Header,
+      // Header,
       Dialog,
       Sudoku
     },
