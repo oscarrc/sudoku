@@ -30,7 +30,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-pagination v-if="total > 0" :length="total" :value="page" :total-visible="7" @next="nextPage" @previous="prevPage" @input="goToPage">
+      <v-pagination v-if="total > 1" :length="total" :value="page" :total-visible="7" @next="nextPage" @previous="prevPage" @input="goToPage">
       </v-pagination>
     </v-layout>
   </v-main>
