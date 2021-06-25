@@ -4,4 +4,4 @@ const supabaseUrl = process.env.VUE_APP_SUPABASE_URL
 const supabaseKey = process.env.VUE_APP_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey)
 
-export { supabase };
+export default supabase;

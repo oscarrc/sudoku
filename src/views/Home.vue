@@ -46,7 +46,6 @@
                   <template v-if="fetching">
                     <v-skeleton-loader v-for="i in [0,1,2]"
                       v-bind:key="i"
-                      v-bind="attrs"
                       type="list-item"
                       class="py-1"
                     ></v-skeleton-loader>
@@ -70,7 +69,7 @@
 
 <script>
   import { mapActions, mapGetters, mapMutations, mapState } from 'vuex';
-  import { supabase } from '@/lib/supabase';
+  import supabase from '@/lib/supabase';
   
   export default {
     name: 'Home',
@@ -115,7 +114,7 @@
       },
       async getTop(){
         this.fetching = true;
-        let { data: times } = await supabase.from('times').select('*').eq('level', this.level).order('time', { ascending: true }).range(0,3);
+        let { data: times } = await supabase.from('times').select('*').eq('level', this.level).order('time', { ascending: true }).range(0,2);
         this.fetching = false;
         this.top = times;
       }

@@ -5,7 +5,7 @@
                 CONGRATULATIONS
             </v-card-title>
             <v-card-text>
-                <p class="my-1 text-center">You've solved this {{ levels[level -1 ] }} level sudoku in <span class="subtitle-2">{{ timer }}</span></p>
+                <p class="my-1 text-center">You've solved this {{ levels[level -1 ] }} level sudoku in <span class="subtitle-2">{{ time | format }}</span></p>
                 <p class="my-1 text-center">Enter your details below to sumit your time</p>
                 <v-form class="mt-2" ref="form" v-model="valid" lazy-validation>
                     <v-text-field
@@ -38,6 +38,7 @@
 
 <script>
   import { mapGetters, mapState } from 'vuex'
+  import supabase from '@/lib/supabase'
 
   export default {
     name: 'Dialog',
@@ -59,14 +60,25 @@
         }
     },
     computed: {
-        ...mapState(['level']),
-        ...mapGetters(['solved', 'timer'])
+        ...mapState(['level', 'time']),
+        ...mapGetters(['solved'])
     },
     methods: {
-        submit: function(){
+        async submit(){
+            if(!this.valid) return;
+            this.loading = true;
+            await supabase.from('times').insert([
+                {
+                    username: this.username,
+                    email: this.email,
+                    level: this.level,
+                    time: this.time
+                }
+            ])            
+            this.loading = false;
             this.$router.push('/')
         },
-        cancel: function(){
+        cancel(){
             this.$router.push('/')
         }
     }
