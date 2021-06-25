@@ -21,7 +21,7 @@
                     <v-list-item-subtitle class="text-right black--text font-weight-medium">{{ time.time | format }}</v-list-item-subtitle>
                   </v-list-item>
                 </template>
-                <template v-else>
+                <template v-if="!fetching && times.length == 0">
                   <v-list-item>
                     <v-list-item-title class="text-center h4 py-2">
                       No one has tried yet <br>
