@@ -3,10 +3,10 @@
     <v-layout fill-height class="flex-column">
       <v-container class="d-flex align-center flex-grow-1">
         <v-row justify="center">
-          <v-col cols="10" sm="8" md="6" :class="fetching ? 'blurred' : ''">
+          <v-col cols="10" sm="8" md="6">
             <v-list elevation="2">
               <template v-if="fetching">
-                  <v-skeleton-loader v-for="i in [0,1,2]"
+                  <v-skeleton-loader v-for="i in 9"
                     v-bind:key="i"
                     type="list-item"
                     class="py-1"
@@ -95,9 +95,6 @@
 </script>
 
 <style scoped>
-  .blurred{
-    filter: blur(5px)
-  }
   .v-list-item:not(:last-child){
     border-bottom: 0.5px solid lightgray;
   }

@@ -44,7 +44,7 @@
               <v-card :loading="fetching">
                 <v-list :class="top.length == 0 ? 'py-0' : ''">
                   <template v-if="fetching">
-                    <v-skeleton-loader v-for="i in [0,1,2]"
+                    <v-skeleton-loader v-for="i in 2"
                       v-bind:key="i"
                       type="list-item"
                       class="py-1"
