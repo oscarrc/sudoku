@@ -39,7 +39,7 @@
     </v-tooltip>
 
     <template v-slot:extension v-if="route == 'Leaderboard'">
-      <v-tabs centered>
+      <v-tabs centered show-arrows>
          <v-tab>😃 Easy</v-tab>
          <v-tab>🤨 Medium</v-tab>
          <v-tab>😨 Hard</v-tab>
