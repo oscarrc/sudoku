@@ -40,9 +40,9 @@
 
     <template v-slot:extension v-if="route == 'Leaderboard'">
       <v-tabs centered show-arrows v-model="tab">
-         <v-tab @change="level">😃 Easy</v-tab>
-         <v-tab @change="level">🤨 Medium</v-tab>
-         <v-tab @change="level">😨 Hard</v-tab>
+         <v-tab>😃 Easy</v-tab>
+         <v-tab>🤨 Medium</v-tab>
+         <v-tab>😨 Hard</v-tab>
       </v-tabs>
     </template>
   </v-app-bar>
@@ -56,12 +56,23 @@
     props: ['route'],
     data(){
       return {
-        tab: 0
+        tab: 0,
+        levels: [
+          { text:"😃 Easy", value: 1},
+          { text:"🤨 Medium", value: 2},
+          { text:"😨 Hard", value: 3 }
+        ],
       }
     },
     computed: {
       ...mapState(['shown', 'checked', 'time']),
       ...mapGetters(['emoji', 'solved']),    
+    },
+    watch:{
+      tab(value){
+        this.setPage(1);
+        this.setLevel(value + 1)
+      }
     },
     methods: {      
       ...mapMutations(['setShown', 'setLevel', 'setPage', 'addTime']),
@@ -70,10 +81,6 @@
       check: function() {
         this.checkErrors();
         this.addTime(10);
-      },
-      level: function() {
-        this.setPage(1);
-        this.setLevel(this.tab + 1)
       }
     }
   }
