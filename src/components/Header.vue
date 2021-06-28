@@ -85,3 +85,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .v-chip.v-chip--outlined.v-chip.v-chip{
+    background-color: white !important;
+  }
+</style>

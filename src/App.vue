@@ -51,9 +51,10 @@
 </script>
 
 <style scoped>
-  /* .theme--light.v-application{
-    background-image: url('assets/image/bg.png');
-    background-size: 100% auto;
-    background-position: left bottom;
-  } */
+  .theme--light.v-application{
+    background-image: url('assets/image/bg.svg');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+  }
 </style>
