@@ -92,6 +92,14 @@
     created(){
       this.getTop(this.level)
     },
+    mounted() {
+        const buttons = this.$el.querySelectorAll('.v-btn');
+        buttons.forEach(b => {
+          b.addEventListener('click', () => {
+            this.$emit("interacted", true);
+          })
+        })
+    },
     methods: {      
       ...mapMutations(['setLoading', 'setLevel']),
       ...mapActions(['startGame']),

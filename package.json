@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "cp dist/index.html dist/200.html && surge dist sudoku.oscarrc.me",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
