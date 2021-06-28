@@ -41,8 +41,8 @@
             </v-select>
           </v-col>
           <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-            <v-card :loading="fetching">
-              <v-list :class="top.length == 0 ? 'py-0' : ''">
+            <v-card :loading="fetching" class="frosted">
+              <v-list :class="top.length == 0 ? 'py-0' : ''" color="transparent">
                 <template v-if="fetching">
                   <v-skeleton-loader v-for="i in 2"
                     v-bind:key="i"
@@ -134,5 +134,10 @@
   .flat-top-button {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+
+  .frosted {
+    background-color: rgba(255,255,255, .85) !important;
+    backdrop-filter: blur(2px);
   }
 </style>

@@ -58,7 +58,9 @@
 
 <style scoped>
   .theme--light.v-application{
+    background-color: white;
     background-image: url('assets/img/bg.png');
     background-position: center bottom;
+    background-repeat: repeat no-repeat;
   }
 </style>

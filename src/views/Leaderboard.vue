@@ -4,7 +4,7 @@
       <v-container class="d-flex align-center flex-grow-1">
         <v-row justify="center">
           <v-col cols="10" sm="8" md="6">
-            <v-list elevation="2">
+            <v-list elevation="2" class="frosted">
               <template v-if="fetching">
                   <v-skeleton-loader v-for="i in 9"
                     v-bind:key="i"
@@ -100,5 +100,9 @@
 <style scoped>
   .v-list-item:not(:last-child){
     border-bottom: 0.5px solid lightgray;
+  }
+  .frosted {
+    background-color: rgba(255,255,255, .85) !important;
+    backdrop-filter: blur(2px);
   }
 </style>

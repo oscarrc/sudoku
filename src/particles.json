@@ -11,14 +11,16 @@
       "enable": true,
       "zIndex": 0
     },
+    "detectRetina": true,
+    "fpsLimit": 60,
     "interactivity": {
       "events": {
         "onClick": {
-          "enable": false,
+          "enable": true,
           "mode": "repulse"
         },
         "onHover": {
-          "enable": false,
+          "enable": true,
           "mode": "bubble"
         }
       },
@@ -37,15 +39,7 @@
         }
       }
     },
-    "particles": {
-      "links": {
-        "color": {
-          "value": "#ffffff"
-        },
-        "distance": 500,
-        "opacity": 0.4,
-        "width": 2
-      },
+    "particles": {      
       "move": {
         "attract": {
           "rotate": {
@@ -73,8 +67,8 @@
           "enable": true
         },
         "value": {
-          "min": 0.1,
-          "max": 0.5
+          "min": 0.5,
+          "max": 1
         },
         "animation": {
           "speed": 1,
@@ -86,8 +80,8 @@
           "enable": true
         },
         "value": {
-          "min": 32,
-          "max": 64
+          "min": 8,
+          "max": 32
         },
         "animation": {
           "speed": 40,
