@@ -7,12 +7,12 @@
     <Header v-if="route !== 'Home'" :route="route" />
     <router-view @interacted="play"/>    
     <v-footer color="transparent">
-      <v-col cols="12" sm="6" class="text-center text-sm-left white--text">Made with <v-icon color="red" small>mdi-cards-heart</v-icon> by <a class="red--text text-decoration-none" href="https://oscarrc.me" target="_BLANK">Oscar R.C.</a></v-col>
+      <v-col cols="12" sm="6" class="text-center text-sm-left white--text">Made with <v-icon color="accent" small>mdi-cards-heart</v-icon> by <a class="accent--text text-decoration-none" href="https://oscarrc.me" target="_BLANK">Oscar R.C.</a></v-col>
       <v-col cols="12" sm="6" class="text-center text-sm-right">
         <v-btn small primary rounded href="https://ko-fi.com/oscarrc" target="_BLANK">
           ☕ Buy me a coffee
         </v-btn>
-        <v-btn x-small fab @click="mute" class="ml-2">
+        <v-btn x-small primary fab @click="mute" class="ml-2">
           <v-icon small>{{ muted ? 'mdi-volume-high' : 'mdi-volume-mute'}}</v-icon>
         </v-btn>
       </v-col>

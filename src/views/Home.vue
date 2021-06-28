@@ -4,18 +4,18 @@
       <v-container class="d-flex align-center">
         <v-row class="flex-column">
           <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-            <h1 class="text-center red--text">数独</h1>
+            <h1 class="text-center accent--text">数独</h1>
             <h2 class="text-center">SUDOKU</h2>
           </v-col>
           <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
-            <v-btn block color="primary" :loading="loading" :disabled="loading" @click="start">
+            <v-btn class="accent--text font-weight-bold" block color="primary" :loading="loading" :disabled="loading" @click="start">
               START
               <template v-slot:loader>
                 <v-progress-circular
                   indeterminate
                   width="2"
                   size="20"
-                  color="primary"
+                  color="secondary"
                 ></v-progress-circular>
                 <span class="ml-2">Generating</span>
               </template>
@@ -24,8 +24,9 @@
           <v-col offset="1" cols="10" offset-sm="2" sm="8" offset-md="3" md="6">
             <v-select
               background-color="primary"
-              color="white"
+              color="accent"
               hide-details="true"
+              item-color="black"
               :disabled="loading" 
               :items="levels"
               :value="levels[level -1]"
@@ -34,7 +35,7 @@
               dense
             >
               <template v-slot:selection="{ item }">
-                <span class="d-flex justify-center white--text subtitle-2 pl-8" style="width: 100%;">
+                <span class="d-flex justify-center accent--text subtitle-2 pl-8" style="width: 100%;">
                   LEVEL :  {{ item.text }}
                 </span>
               </template>
@@ -58,7 +59,7 @@
                   </v-list-item>
                 </template>
               </v-list>
-              <v-btn block color="primary" class="flat-top-button" to="/leaderboard">LEADERBOARDS</v-btn>
+              <v-btn block color="primary" class="accent--text flat-top-button font-weight-bold" to="/leaderboard">LEADERBOARDS</v-btn>
             </v-card>
           </v-col>
         </v-row>

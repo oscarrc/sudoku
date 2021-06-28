@@ -2,7 +2,7 @@
   <v-app-bar app elevation="0" color="transparent" class="px-4">
     <v-toolbar-title>
       <router-link to="/" class="black--text text-decoration-none">
-        <span class="red--text">数独</span> Sudoku
+        <span class="accent--text">数独</span> Sudoku
       </router-link>
     </v-toolbar-title>    
     <v-spacer></v-spacer>
@@ -39,7 +39,7 @@
     </v-tooltip>
 
     <template v-slot:extension v-if="route == 'Leaderboard'">
-      <v-tabs centered show-arrows v-model="tab">
+      <v-tabs color="accent" centered show-arrows v-model="tab">
          <v-tab>😃 Easy</v-tab>
          <v-tab>🤨 Medium</v-tab>
          <v-tab>😨 Hard</v-tab>

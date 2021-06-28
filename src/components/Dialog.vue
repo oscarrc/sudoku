@@ -28,10 +28,10 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="red" text @click="cancel" :disabled="loading">
+                <v-btn text @click="cancel" :disabled="loading">
                     Cancel
                 </v-btn>
-                <v-btn color="primary" text @click="submit" :loading="loading" :disabled="loading">
+                <v-btn color="accent" text @click="submit" :loading="loading" :disabled="loading">
                     Submit
                 </v-btn>
             </v-card-actions>
