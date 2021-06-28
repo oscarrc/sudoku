@@ -1,5 +1,9 @@
 <template>
-  <v-app class="bg">
+  <v-app class="bg">    
+    <Particles
+      id="tsparticles"
+      :options="particles"
+    />
     <Header v-if="route !== 'Home'" :route="route" />
     <router-view @interacted="play"/>    
     <v-footer color="transparent">
@@ -17,7 +21,8 @@
 </template>
 
 <script>
-  import Header from '@/components/Header';
+  import Header from '@/components/Header';  
+  import particles from '@/particles.json';
 
   export default {
     name: 'App',
@@ -32,7 +37,8 @@
     data: function() {
       return {
         audio: new Audio(require("@/assets/music/music.mp3")),
-        muted: true
+        muted: true,
+        particles: particles
       }
     },
     mounted(){
@@ -52,7 +58,7 @@
 
 <style scoped>
   .theme--light.v-application{
-    background-image: url('assets/image/bg.png');
+    background-image: url('assets/img/bg.png');
     background-position: center bottom;
   }
 </style>
