@@ -31,7 +31,7 @@
 
   export default {
     name: 'Footer',
-    props: ['muted'],
+    props: ['muted', 'route'],
     methods: {
       ...mapMutations(['setShown', 'addTime']),
       ...mapActions(['checkErrors']),
