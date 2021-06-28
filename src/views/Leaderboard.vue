@@ -1,7 +1,7 @@
 <template>
   <v-main>
     <v-layout fill-height class="flex-column">
-      <v-container class="d-flex align-center flex-grow-1">
+      <v-container class="d-flex align-start flex-grow-1 mt-8">
         <v-row justify="center">
           <v-col cols="10" sm="8" md="6">
             <v-list elevation="2" class="frosted">
