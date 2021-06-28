@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-row v-for="row, rindex in shown ? sudoku.solution : sudoku.puzzle" v-bind:key="rindex" class="justify-center">
-      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'bordered d-flex justify-center ' + cellClasses(rindex, cindex)">
+      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'elevation-4 bg-white bordered d-flex justify-center ' + cellClasses(rindex, cindex)">
         <span v-if="col !== 0" class="cell text-center">{{ col }}</span>
         <input v-else type="number" :class="'cell text-center font-weight-bold ' + checkClasses(rindex,cindex)" @keyup="(e) => setCellValue(rindex, cindex, e) "/>
       </v-col>
@@ -46,6 +46,9 @@
 </script>
 
 <style scoped>
+  .bg-white {
+    background-color: white
+  }
   .bordered {
     border: .25px solid gray;
   }
