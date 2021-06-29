@@ -52,6 +52,6 @@
       color: rgba(255, 255, 255, 0.6) !important;
   }
   .fade-to-black{
-    background-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
+    background-image: linear-gradient(to top, rgba(0,0,0,1) 25%, rgba(255,255,255,0) 100%);
   }
 </style>
