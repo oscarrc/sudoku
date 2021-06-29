@@ -2,10 +2,10 @@
     <v-main>      
       <!-- <Header /> -->
       <v-layout fill-height>
-        <v-container :class="(loading ? 'blurred' : '') + ' ' + (breakpoint == 'xs' ? 'pa-0' : '' )" class="d-flex align-center">
+        <v-container :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )" class="d-flex align-center">
           <v-row justify="center">
-            <v-col cols="12" sm="10" md="8" :class="(loading ? 'blurred' : '') + ' ' + (breakpoint == 'xs' ? 'pa-0' : '' )">
-              <Sudoku breakpoint />
+            <v-col cols="12" sm="10" md="8" :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )">
+              <Sudoku isSmall />
             </v-col>
           </v-row>
         </v-container>
@@ -25,8 +25,8 @@
     computed: {
       ...mapState(['sudoku', 'time', 'loading', 'shown']),
       ...mapGetters(['solved']),
-      breakpoint(){
-        return this.$vuetify.breakpoint.name
+      isSmall(){
+        return this.$vuetify.breakpoint.name == "xs"
       }
     },
     components: {
