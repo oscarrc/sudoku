@@ -1,15 +1,15 @@
 <template>
-  <v-footer color="transparent">    
+  <v-footer color="transparent" class="fade-to-black">    
     <v-bottom-navigation v-if="route == 'Game'" background-color="transparent" color="accent" class="primary--text d-flex d-sm-none">
       <v-btn value="restart" to="/">
         <span>Home</span>
         <v-icon>mdi-home</v-icon>
       </v-btn>
-      <v-btn value="check">
+      <v-btn value="check" @click="check">
         <span>Check</span>
         <v-icon>mdi-check-all</v-icon>
       </v-btn>
-      <v-btn value="solve">
+      <v-btn value="solve" @click="solve">
         <span>Solve</span>
         <v-icon>mdi-flag-checkered</v-icon>
       </v-btn>
@@ -50,5 +50,8 @@
 <style scoped>
   .theme--light.v-bottom-navigation .v-btn:not(.v-btn--active) {
       color: rgba(255, 255, 255, 0.6) !important;
+  }
+  .fade-to-black{
+    background-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(255,255,255,0) 100%);
   }
 </style>
