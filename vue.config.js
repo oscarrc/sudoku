@@ -22,7 +22,7 @@ module.exports = {
     lang: "en",
     scope: "/",
     start_url: ".",
-    display: "standalone",
+    display: "fullscreen",
     theme_color: "#d11920",
     background_color: "#ffffff",
     orientation: "portrait",
