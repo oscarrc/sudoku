@@ -2,9 +2,9 @@
     <v-main>      
       <!-- <Header /> -->
       <v-layout fill-height>
-        <v-container class="d-flex align-center">
+        <v-container class="d-flex align-center pa-xs-0">
           <v-row justify="center">
-            <v-col cols="12" sm="10" md="8" :class="loading ? 'blurred' : ''">
+            <v-col cols="12" sm="10" md="8" :class="loading ? 'blurred' : ''" class="pa-xs-0">
               <Sudoku />
             </v-col>
           </v-row>
