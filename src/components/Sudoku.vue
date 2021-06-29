@@ -34,11 +34,11 @@
         return this.checked && 
               this.sudoku.grid[r][c] != this.sudoku.solution[r][c] && 
               this.sudoku.puzzle[r][c] == 0 &&
-              this.sudoku.grid[r][c] != 0 ? 'red lighten-4' : '';
+              this.sudoku.grid[r][c] != 0 ? 'error lighten-4' : '';
       },
       setCellValue(row, col, event){
         let value = event.target.value ? parseInt(event.target.value) : 0;
-        if(this.checked) event.target.classList.remove("red");
+        if(this.checked) event.target.classList.remove("error");
         if(value && !isNaN(value)) this.setCell({row, col, value});
       }
     }
