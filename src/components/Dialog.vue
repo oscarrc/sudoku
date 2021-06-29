@@ -14,6 +14,7 @@
                         label="Username"
                         @keyup="error = false"
                         required
+                        color="black"
                     ></v-text-field>
 
                     <v-text-field
@@ -22,6 +23,7 @@
                         label="E-mail"
                         @keyup="error = false"
                         required
+                        color="black"
                     ></v-text-field>
                     <span v-if="error" class="caption red--text">Username aleready exists and doesn't match email</span>
                 </v-form>
