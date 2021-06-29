@@ -2,10 +2,10 @@
     <v-main>      
       <!-- <Header /> -->
       <v-layout fill-height>
-        <v-container class="d-flex align-center pa-xs-0">
+        <v-container :class="(loading ? 'blurred' : '') + ' ' + (breakpoint == 'xs' ? 'pa-0' : '' )" class="d-flex align-center">
           <v-row justify="center">
-            <v-col cols="12" sm="10" md="8" :class="loading ? 'blurred' : ''" class="pa-xs-0">
-              <Sudoku />
+            <v-col cols="12" sm="10" md="8" :class="(loading ? 'blurred' : '') + ' ' + (breakpoint == 'xs' ? 'pa-0' : '' )">
+              <Sudoku breakpoint />
             </v-col>
           </v-row>
         </v-container>
@@ -24,7 +24,10 @@
     name: 'Game',
     computed: {
       ...mapState(['sudoku', 'time', 'loading', 'shown']),
-      ...mapGetters(['solved'])
+      ...mapGetters(['solved']),
+      breakpoint(){
+        return this.$vuetify.breakpoint.name
+      }
     },
     components: {
       // Header,

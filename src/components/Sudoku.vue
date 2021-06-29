@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid class="pa-xs-0">
+  <v-container fluid :class="breakpoint == 'xs' ? 'pa-0' : '' ">
     <v-row v-for="row, rindex in shown ? sudoku.solution : sudoku.puzzle" v-bind:key="rindex" class="justify-center">
-      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'elevation-4 frosted bordered pa-xs-0 ' + cellClasses(rindex, cindex)">
+      <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'elevation-4 frosted bordered pa-0 ' + cellClasses(rindex, cindex)">
         <v-responsive :aspect-ratio="1/1" class="text-center flex" content-class="d-flex justify-center align-self-stretch align-center" height="100%">
           <span v-if="col !== 0">{{ col }}</span>
           <input v-else type="number" :class="'cell text-center font-weight-bold ' + checkClasses(rindex,cindex)" @keyup="(e) => setCellValue(rindex, cindex, e) "/>
@@ -17,6 +17,7 @@
   export default {
     name: 'Sudoku',
     computed: mapState(['sudoku', 'shown', 'checked']),
+    props: ['breakpoint'],
     data () {
       return {
         dialog: false
