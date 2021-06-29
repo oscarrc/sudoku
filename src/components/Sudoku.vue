@@ -27,7 +27,7 @@
       cellClasses(r, c){
         const bottom = (r + 1) % 3 === 0 && r > 0 && r < (this.sudoku.grid.length - 1) ? 'border-b' : '';
         const right = (c  + 1) % 3 === 0 && c > 0 && c < (this.sudoku.grid[r].length - 1) ? 'border-r' : '';      
-        const solve = this.shown ? ( this.sudoku.grid[r][c] != this.sudoku.solution[r][c] ? 'red--text font-weight-bold' : ( this.sudoku.puzzle[r][c] == 0 ? 'green--text font-weight-bold' : '' )) : '';
+        const solve = this.shown ? ( this.sudoku.grid[r][c] != this.sudoku.solution[r][c] ? 'accent--text font-weight-bold' : ( this.sudoku.puzzle[r][c] == 0 ? 'green--text font-weight-bold' : '' )) : '';
         
         return `${bottom} ${right} ${solve}`
       },
