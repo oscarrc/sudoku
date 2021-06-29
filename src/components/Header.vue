@@ -32,7 +32,7 @@
     <v-tooltip bottom v-if="route != 'Home'">
       <template v-slot:activator="{ on: tooltip }">
         <v-btn class="d-none d-sm-flex" icon v-on="{ ...tooltip }" to="/">
-          <v-icon>mdi-arrow-left-bold</v-icon>
+          <v-icon>mdi-home</v-icon>
         </v-btn>
       </template>
       <span class="text-center">Start a new game</span>
