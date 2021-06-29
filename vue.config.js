@@ -22,8 +22,13 @@ module.exports = {
         'Puzzle',
         'Sudoku'
       ],
-      screenshots: [],
-      icons: [],
+      screenshots: [
+        {
+          "src": "img/screenshot.png",
+          "type": "image/png",
+          "sizes": "1600x761"
+        }
+      ],
       dir: 'ltr',
       lang: 'en',
       scope: '/',
