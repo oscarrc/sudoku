@@ -47,6 +47,20 @@
             "y": 1200
           }
         },
+        "tilt":{
+          "random":{
+            "enable": true,
+            "minimumValue": 180
+          },
+          "value": 0,
+          "animation": {
+            "enable": true,
+            "speed": 2,
+            "sync": false
+          },
+          "direction": "random",
+          "enable": true
+        },
         "direction": "bottom",
         "enable": true,
         "outModes": {
