@@ -52,6 +52,7 @@
   .theme--light.v-application{
     background-color: white;
     background-image: url('assets/img/bg-bg.svg'), url('assets/img/bg-fg.svg');
+    background-size: 1200px auto;
     background-position: center bottom, center bottom;
     background-repeat: repeat no-repeat, no-repeat;
   }
