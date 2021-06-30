@@ -1,6 +1,6 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y43D7I3)
 
-## 数独 Sudoku v1.0.0
+## <span style="color:#d11920">**数独**</span> Sudoku v1.0.0
 
 Dinamically generated - relaxing Sudoku game PWA with leaderboards.
 
