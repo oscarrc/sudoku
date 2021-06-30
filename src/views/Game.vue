@@ -1,6 +1,5 @@
 <template>
     <v-main>      
-      <!-- <Header /> -->
       <v-layout fill-height>
         <v-container :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )" class="d-flex align-center">
           <v-row justify="center">
@@ -16,7 +15,6 @@
 
 <script>
   import { mapGetters, mapState } from 'vuex';
-  // import Header from '@/components/Header';
   import Dialog from '@/components/Dialog';
   import Sudoku from '@/components/Sudoku';
 
@@ -30,7 +28,6 @@
       }
     },
     components: {
-      // Header,
       Dialog,
       Sudoku
     },
