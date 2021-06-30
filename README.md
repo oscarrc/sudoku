@@ -1,24 +1,30 @@
-# sudoku
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y43D7I3)
 
-## Project setup
-```
-npm install
-```
+## 数独 Sudoku v1.0.0
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Dinamically generated - relaxing Sudoku game PWA with leaderboards.
 
-### Compiles and minifies for production
-```
-npm run build
-```
+![Sudoku](https://github.com/oscarrc/sudoku/blob/master/public/img/screenshot.png?raw=true "Sudoku PWA")
 
-### Lints and fixes files
-```
-npm run lint
-```
+   ## Acces the [Web app](https://sudoku.oscarrc.me)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+---
+
+### Features
+
+1. 3 difficulty levels
+2. Leaderboards per level
+3. Check for errors during game (adds 10 seconds to the timer)
+
+### Found a bug?
+
+Open an [issue](https://github.com/oscarrc/sudoku/issues) and let me know.
+
+### Do you wanna help?
+
+[Buy me a coffee](https://ko-fi.com/Y8Y43D7I3), and feel free to open a PR
+
+### License
+
+This work is license under the [MIT License](https://github.com/oscarrc/sudoku/blob/master/LICENSE)
+
