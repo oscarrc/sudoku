@@ -13,7 +13,7 @@ module.exports = {
   assetsDir: 'assets',
   pwa: {
     name: '数独 Sudoku',    
-    themeColor: '#d11920',
+    themeColor: '#ffffff',
     manifestOptions: {
       short_name: '数独 Sudoku',
       description: 'Procedurally generated and relaxing Sudoku game',
@@ -34,7 +34,7 @@ module.exports = {
       scope: '/',
       start_url: '.',
       display: 'fullscreen',
-      theme_color: '#d11920',
+      theme_color: '#ffffff',
       background_color: '#ffffff',
       orientation: 'portrait',
       related_applications: [
