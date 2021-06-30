@@ -16,7 +16,7 @@ module.exports = {
     themeColor: '#ffffff',
     manifestOptions: {
       short_name: '数独 Sudoku',
-      description: 'Procedurally generated and relaxing Sudoku game',
+      description: 'Dinamically generated and relaxing Sudoku game',
       categories: [
         'Games',
         'Puzzle',
