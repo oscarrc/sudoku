@@ -36,7 +36,7 @@
             >
               <template v-slot:selection="{ item }">
                 <span class="d-flex justify-center accent--text subtitle-2 pl-8" style="width: 100%;">
-                  LEVEL :  {{ item.text }}
+                  {{ item.text }}
                 </span>
               </template>
             </v-select>
@@ -81,9 +81,9 @@
     data() {
       return {
         levels: [
-          { text:"Easy 😃", value: 1},
-          { text:"Medium 🤨", value: 2},
-          { text:"Hard 😨", value: 3 }
+          { text:"😃 Easy", value: 1},
+          { text:"🤨 Medium", value: 2},
+          { text:"😨 Hard", value: 3 }
         ],
         medals: ['🥇', '🥈', '🥉'],
         top: [],
