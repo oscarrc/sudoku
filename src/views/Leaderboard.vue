@@ -15,7 +15,7 @@
                 <template v-if="!fetching && times.length > 0">
                   <v-list-item v-for="time, idx in times" v-bind:key="time.id">
                     <v-list-item-avatar>
-                      <span class="h6">{{ medals.length > idx ? medals[idx] : idx + 1 }}</span>
+                      <span class="h6">{{ medals.length > idx * page ? medals[idx] : (idx + 1) * page }}</span>
                     </v-list-item-avatar>
                     <v-list-item-title>{{ time.username }} <br/> <span class="caption text--secondary">{{ time.date }}</span> </v-list-item-title>
                     <v-list-item-subtitle class="text-right black--text font-weight-medium">{{ time.time | format }}</v-list-item-subtitle>
