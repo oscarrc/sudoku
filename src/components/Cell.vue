@@ -18,9 +18,6 @@
     name: "Cell",
     props: ['values'],
     computed: {
-      isSingle(){
-          return Object.keys(this.values).filter( k => this.values[k] === true ).length === 1;
-      },
       value(){
         const value = Object.keys(this.values).filter( k => this.values[k] === true );
         return value.length === 1 ? value[0] : 0;

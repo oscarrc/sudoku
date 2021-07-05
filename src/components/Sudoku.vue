@@ -4,7 +4,7 @@
       <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'elevation-4 frosted bordered pa-0 ' + cellClasses(rindex, cindex)">
         <v-responsive :aspect-ratio="1/1" class="text-center flex" content-class="d-flex justify-center align-self-stretch align-center" height="100%">
           <span v-if="col !== 0">{{ col }}</span>
-          <Cell v-else :values="sudoku.grid[rindex][cindex]" @click="(e) => showSelector(e, rindex, cindex)" />
+          <Cell v-else :values="sudoku.grid[rindex][cindex]" @click="(e) => showSelector(e, rindex, cindex)" :class="checkClasses(rindex, cindex)" />
           <!-- <span v-else @click="(e) => showSelector(e, rindex, cindex)" :class="'d-flex justify-center align-center cell font-weight-bold ' + checkClasses(rindex,cindex)">
             {{ sudoku.grid[rindex][cindex] ? sudoku.grid[rindex][cindex] : '' }}
           </span> -->
@@ -43,10 +43,11 @@
         return `${bottom} ${right} ${solve}`
       },
       checkClasses(r, c){
-        return this.checked && 
-              this.sudoku.grid[r][c] != this.sudoku.solution[r][c] && 
-              this.sudoku.puzzle[r][c] == 0 &&
-              this.sudoku.grid[r][c] != 0 ? 'error lighten-4' : '';
+        const value = Object.keys(this.sudoku.grid[r][c]).filter( k => this.sudoku.grid[r][c][k] === true )
+
+        return this.checked && value.length === 1 && 
+              value[0] != this.sudoku.solution[r][c] && 
+              this.sudoku.puzzle[r][c] == 0 ? 'error lighten-4' : '';
       },
       // setCellValue(row, col, event){
       //   let value = event.target.value ? parseInt(event.target.value) : 0;
@@ -54,7 +55,6 @@
       //   if(value && !isNaN(value)) this.setCell({row, col, value});
       // },
       setCellValue(value){
-        console.log({row: this.cell[0], col: this.cell[1], value})
         this.setCell({row: this.cell[0], col: this.cell[1], value});
       },
       showSelector(e, row, col){
