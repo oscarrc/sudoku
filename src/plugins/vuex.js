@@ -33,7 +33,7 @@ export default new Vuex.Store({
     setCell(state, payload){ 
       const { row, col, value } = payload;
       let grid = state.sudoku.grid;
-      grid[row][col] = value;
+      grid[row][col][value] = !grid[row][col][value];
       state.sudoku = { ...state.sudoku, grid }
     },
   },
@@ -67,6 +67,6 @@ export default new Vuex.Store({
     emoji: state => {
       let levels = ["😃", "🤨", "😨"];
       return levels[state.level - 1]
-    },
+    }
   }
 })

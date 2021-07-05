@@ -1,29 +1,31 @@
 <template>
   <v-container fluid :class="isSmall ? 'pa-0' : '' ">
-    <v-row v-for="row, rindex in shown ? sudoku.solution : sudoku.puzzle" v-bind:key="rindex" class="justify-center">
+    <v-row no-gutters v-for="row, rindex in shown ? sudoku.solution : sudoku.puzzle" v-bind:key="rindex" justify="center">
       <v-col cols="1" v-for="col, cindex in row" v-bind:key="rindex + '-' + cindex" :class="'elevation-4 frosted bordered pa-0 ' + cellClasses(rindex, cindex)">
         <v-responsive :aspect-ratio="1/1" class="text-center flex" content-class="d-flex justify-center align-self-stretch align-center" height="100%">
           <span v-if="col !== 0">{{ col }}</span>
-          <span v-else @click="(e) => showSelector(e, rindex, cindex)" :class="'d-flex justify-center align-center cell font-weight-bold ' + checkClasses(rindex,cindex)">
+          <Cell v-else :values="sudoku.grid[rindex][cindex]" @click="(e) => showSelector(e, rindex, cindex)" />
+          <!-- <span v-else @click="(e) => showSelector(e, rindex, cindex)" :class="'d-flex justify-center align-center cell font-weight-bold ' + checkClasses(rindex,cindex)">
             {{ sudoku.grid[rindex][cindex] ? sudoku.grid[rindex][cindex] : '' }}
-          </span>
+          </span> -->
           <!-- <input v-else type="number" :class="'cell text-center font-weight-bold ' + checkClasses(rindex,cindex)" @keyup="(e) => setCellValue(rindex, cindex, e) "/> -->
         </v-responsive>
       </v-col>
     </v-row>
-    <Selector :open="selector" :position="position" :value="sudoku.grid[cell[0], cell[1]]" :setValue="setCellValue" />
+    <Selector :open="selector" :position="position" :values="sudoku.grid[cell[0], cell[1]]" :setValue="setCellValue" />
   </v-container>
 </template>
 
 <script>
   import { mapMutations, mapState } from 'vuex'
   import Selector from '@/components/Selector.vue'
+  import Cell from '@/components/Cell.vue'
 
   export default {
     name: 'Sudoku',
     computed: mapState(['sudoku', 'shown', 'checked']),
     props: ['isSmall'],
-    components: { Selector },
+    components: { Selector, Cell },
     data(){
       return {
         selector: false,
@@ -84,11 +86,6 @@
   .border-r {
     border-right-width: 2px !important;
     border-right-color: black;
-  }
-  .cell {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

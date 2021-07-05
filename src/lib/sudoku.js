@@ -33,9 +33,23 @@ const generateSudoku = (level = 20, size = 9) => {
             }
         }
         puzzle = grid.map(row => row.slice());
+        grid = initGrid(grid);
 
         resolve({grid, solution, puzzle})
     })
+}
+
+// Inits zeroed grid values to an object
+const initGrid = (grid) => {
+    for(let i=0; i<grid.length; i++){
+        for(let j=0; j<grid[i].length; j++){
+            if(grid[i][j] === 0){
+                grid[i][j] = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false }
+            }
+        }
+    }
+
+    return grid;
 }
 
 // Checks for incorrect number placement acording to the solution
