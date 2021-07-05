@@ -55,12 +55,11 @@ export default new Vuex.Store({
       const { grid, solution } = state.sudoku;
       
       for( let row = 0; row < grid.length; row++ ){
-        for( let col = 0; col < grid[row].length; col++ ){
-          const value = Object.keys(grid[row][col]).filter( k => grid[row][col][k] === true );
-          
-          if(value.length > 1 || value[0] != solution[row][col]){
-            return false
-          }
+        for( let col = 0; col < grid[row].length; col++ ){          
+          if(typeof grid[row][col] === 'object'){
+            const value = Object.keys(grid[row][col]).filter( k => grid[row][col][k] === true );            
+            if(value.length !== 1 || parseInt(value[0]) !== solution[row][col]) return false
+          }            
         }
       }
 
