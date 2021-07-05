@@ -36,9 +36,14 @@
     methods: {
       ...mapMutations(['setCell']),
       cellClasses(r, c){
+        const values = Object.keys(this.sudoku.grid[r][c]).filter( k => this.sudoku.grid[r][c][k] === true );
+        const userInput = this.sudoku.puzzle[r][c] === 0;
+        const isSingle = values.length === 1;
         const bottom = (r + 1) % 3 === 0 && r > 0 && r < (this.sudoku.grid.length - 1) ? 'border-b' : '';
         const right = (c  + 1) % 3 === 0 && c > 0 && c < (this.sudoku.grid[r].length - 1) ? 'border-r' : '';      
-        const solve = this.shown ? ( this.sudoku.grid[r][c] != this.sudoku.solution[r][c] ? 'accent--text font-weight-bold' : ( this.sudoku.puzzle[r][c] == 0 ? 'green--text font-weight-bold' : '' )) : '';
+        const solve = this.shown ? 
+          ( isSingle && values[0] != this.sudoku.solution[r][c] ) || ( !isSingle &&  userInput ) ? 
+            'accent--text font-weight-bold' : ( userInput ? 'green--text font-weight-bold' : '' ) : '';
         
         return `${bottom} ${right} ${solve}`
       },
