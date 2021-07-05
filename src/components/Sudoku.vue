@@ -85,9 +85,6 @@
     border-right-width: 2px !important;
     border-right-color: black;
   }
-  .cell-wrapper{
-    min-height: 100% !important
-  }
   .cell {
     width: 100%;
     height: 100%;
@@ -98,8 +95,7 @@
     -webkit-appearance: none;
     margin: 0;
   }
-
-  input[type=number] {
-      -moz-appearance:textfield;
-  }
+  /* input[type=number] {
+    -moz-appearance:textfield;
+  } */
 </style>
