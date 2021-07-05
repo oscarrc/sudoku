@@ -56,7 +56,9 @@ export default new Vuex.Store({
       
       for( let row = 0; row < grid.length; row++ ){
         for( let col = 0; col < grid[row].length; col++ ){
-          if(grid[row][col] != solution[row][col]){
+          const value = Object.keys(grid[row][col]).filter( k => grid[row][col][k] === true );
+          
+          if(value.length > 1 || value[0] != solution[row][col]){
             return false
           }
         }

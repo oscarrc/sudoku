@@ -1,12 +1,12 @@
 <template>
   <v-row no-gutters @click="(e) => this.$emit('click', e)" class="cell">
     <template v-if="value">
-      <v-col cols="12" class="ma-auto">{{ value }}</v-col>
+      <v-col cols="12" class="ma-auto font-weight-bold">{{ value }}</v-col>
     </template>
     <template v-else>
       <v-col v-for="(value, key) in values" :key="key" cols="4" class="caption guess">
         <v-responsive :aspect-ratio="1/1" class="flex justify-center align-center">
-          <span>{{ value ? key : '' }}</span>
+          <span class="text--secondary">{{ value ? key : '' }}</span>
         </v-responsive>
       </v-col>
     </template>
