@@ -59,7 +59,9 @@
         this.selector = false
         this.position = [e.clientX, e.clientY]        
         this.cell = [row, col]
-        this.selector = true
+        this.$nextTick(() => {
+          this.selector = true
+        })
       }
     }
   }
