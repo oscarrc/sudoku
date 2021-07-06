@@ -8,7 +8,7 @@
         </v-responsive>
       </v-col>
     </v-row>
-    <Selector :open="selector" :position="position" :values="sudoku.grid[cell[0], cell[1]]" :setValue="setCellValue" />
+    <Selector :open="selector" :position="position" :values="sudoku.grid[cell[0]][cell[1]]" :setValue="setCellValue" />
   </v-container>
 </template>
 
@@ -59,9 +59,7 @@
         this.selector = false
         this.position = [e.clientX, e.clientY]        
         this.cell = [row, col]
-        this.$nextTick(() => {
-          this.selector = true
-        })
+        this.selector = true
       }
     }
   }
