@@ -1,10 +1,22 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "me.oscarrc.sudoku.twa",
-    "sha256_cert_fingerprints": [
-      "C6:CB:8A:EA:2A:4E:18:05:A9:B8:00:F1:CB:56:18:10:0D:77:EC:11:2A:49:0F:9A:90:40:2B:D0:64:24:FE:BE"
-    ]
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.oscarrc.sudoku.twa",
+      "sha256_cert_fingerprints": [
+        "C6:CB:8A:EA:2A:4E:18:05:A9:B8:00:F1:CB:56:18:10:0D:77:EC:11:2A:49:0F:9A:90:40:2B:D0:64:24:FE:BE"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.oscarrc.sudoku.twa",
+      "sha256_cert_fingerprints": [
+        "EE:C2:F1:7E:23:FE:ED:9A:4F:2A:16:80:F4:E6:56:8E:9C:54:FE:85:D7:C5:C5:2B:93:70:57:51:C2:CD:0C:99"
+      ]
+    }
   }
-}]
+]
