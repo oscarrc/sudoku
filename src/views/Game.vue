@@ -3,7 +3,7 @@
       <v-layout fill-height>
         <v-container :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )" class="d-flex align-center">
           <v-row justify="center">
-            <v-col cols="12" sm="10" md="8" :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )">
+            <v-col cols="12" sm="10" md="8" xl="6" :class="(loading ? 'blurred' : '') + ' ' + (isSmall ? 'pa-0' : '' )">
               <Sudoku isSmall />
             </v-col>
           </v-row>
