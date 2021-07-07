@@ -24,10 +24,15 @@ module.exports = {
       ],
       screenshots: [
         {
-          "src": "img/screenshot.png",
+          "src": "img/screenshot1.png",
           "type": "image/png",
           "sizes": "1600x761"
-        }
+        },
+        {
+          "src": "img/screenshot2.png",
+          "type": "image/png",
+          "sizes": "1600x761"
+        },
       ],
       dir: 'ltr',
       lang: 'en',

@@ -4,7 +4,7 @@
 
 Dinamically generated - relaxing Sudoku game PWA with leaderboards.
 
-![Sudoku](https://github.com/oscarrc/sudoku/blob/master/public/img/screenshot.png?raw=true "Sudoku PWA")
+![Sudoku](https://github.com/oscarrc/sudoku/blob/master/public/img/screenshot1.png?raw=true "Sudoku PWA")
 
    ## Acces the [Web app](https://sudoku.oscarrc.me)
 
