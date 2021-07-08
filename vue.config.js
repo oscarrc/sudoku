@@ -46,6 +46,11 @@ module.exports = {
         {
           platform: 'web',
           url: 'https://sudoku.oscarrc.me'
+        },
+        {
+          platform: 'play',
+          url: 'https://play.google.com/store/apps/details?id=me.oscarrc.sudoku.twa',
+          id: 'me.oscarrc.sudoku.twa'
         }
       ]
     }  
