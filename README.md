@@ -7,7 +7,10 @@ Dinamically generated - relaxing Sudoku game PWA with leaderboards.
 ![Sudoku](https://github.com/oscarrc/sudoku/blob/master/public/img/screenshot1.png?raw=true "Sudoku PWA")
 
    ## Acces the [Web app](https://sudoku.oscarrc.me)
-
+   
+   <a href="https://play.google.com/store/apps/details?id=me.oscarrc.sudoku.twa">
+      <img width="200" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Play Store"/>
+   </a>
 ---
 
 ### Features
