@@ -6,13 +6,17 @@ Dinamically generated - relaxing Sudoku game PWA with leaderboards.
 
 ![Sudoku](https://github.com/oscarrc/sudoku/blob/master/public/img/screenshot1.png?raw=true "Sudoku PWA")
 
-
-<div style="text-align: center">
-   <a href="sudoku.oscarrc.me">
-   <img width="175" src="https://user-images.githubusercontent.com/9122190/28998409-c5bf7362-7a00-11e7-9b63-db56694522e7.png" alt="PWA"></a>
-   
-   <a href="https://play.google.com/store/apps/details?id=me.oscarrc.sudoku.twa"><img width="200" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Play Store"/></a>
-</div>
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://sudoku.oscarrc.me">
+      <img width="175" src="https://user-images.githubusercontent.com/9122190/28998409-c5bf7362-7a00-11e7-9b63-db56694522e7.png" alt="PWA"></a>
+    </td>
+    <td align="center">
+       <a href="https://play.google.com/store/apps/details?id=me.oscarrc.sudoku.twa"><img width="200"           src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Play Store"/></a>
+    </td>
+  </tr>
+</table>
 
 ---
 
