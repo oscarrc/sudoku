@@ -16,7 +16,7 @@
     </v-bottom-navigation>
     <v-col cols="12" sm="6" class="text-center text-sm-left white--text">Made with <v-icon color="accent" small>mdi-cards-heart</v-icon> by <a class="accent--text text-decoration-none" href="https://oscarrc.me" target="_BLANK">Oscar R.C.</a></v-col>
     <v-col cols="12" sm="6" class="text-center text-sm-right">
-      <v-btn small primary rounded href="https://ko-fi.com/oscarrc" target="_BLANK">
+      <v-btn v-if="now >= target" small primary rounded href="https://ko-fi.com/oscarrc" target="_BLANK">
         ☕ Buy me a coffee
       </v-btn>
       <v-btn x-small primary fab @click="mute" class="ml-2">
@@ -32,6 +32,12 @@
   export default {
     name: 'Footer',
     props: ['muted', 'route'],
+    data() {
+      return {
+        now: new Date(),
+        target: new Date('08/02/2021')
+      }
+    },
     methods: {
       ...mapMutations(['setShown', 'addTime']),
       ...mapActions(['checkErrors']),
